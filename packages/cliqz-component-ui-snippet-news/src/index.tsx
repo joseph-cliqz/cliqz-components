@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ({ text = 'hello'}) => (
+export const NewsSnippet = ({ text = 'hello' }) => (
   <View style={styles.container}>
     <Text style={styles.text}>{text}</Text>
   </View>
