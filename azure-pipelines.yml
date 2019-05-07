@@ -1,0 +1,23 @@
+trigger:
+  - master
+
+pool:
+  vmImage: 'ubuntu-16.04'
+
+steps:
+#Node Install
+- task: NodeTool@0
+  displayName: Node install
+  inputs:
+    versionSpec: '11.x'
+
+- script: |
+    pip install awscli
+  displayName: 'Install AWS CLI'
+
+- bash: |
+    npm ci
+    npm run build-storybook
+  displayName: 'Building Storybook' 
+
+- script: cp -r storybook-static pangolins
